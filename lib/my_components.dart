@@ -1,7 +1,2 @@
-library my_components;
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/components/buttons/my_button.dart';
+export 'src/theme_manager/theme_manager.dart';

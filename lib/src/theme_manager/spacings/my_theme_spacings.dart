@@ -41,16 +41,16 @@ class MyThemeSpacings {
   });
 
   MyThemeSpacings.fromJSON(Map<String, dynamic> json)
-      : zero = json[_zero],
-        xxxsmall = json[_xxxsmall],
-        xxsmall = json[_xxsmall],
-        xsmall = json[_xsmall],
-        small = json[_small],
-        medium = json[_medium],
-        large = json[_large],
-        xlarge = json[_xlarge],
-        xxlarge = json[_xxlarge],
-        xxxlarge = json[_xxxlarge],
-        huge = json[_huge],
-        xhuge = json[_xhuge];
+      : zero = json[_zero].toDouble(),
+        xxxsmall = json[_xxxsmall].toDouble(),
+        xxsmall = json[_xxsmall].toDouble(),
+        xsmall = json[_xsmall].toDouble(),
+        small = json[_small].toDouble(),
+        medium = json[_medium].toDouble(),
+        large = json[_large].toDouble(),
+        xlarge = json[_xlarge].toDouble(),
+        xxlarge = json[_xxlarge].toDouble(),
+        xxxlarge = json[_xxxlarge].toDouble(),
+        huge = json[_huge].toDouble(),
+        xhuge = json[_xhuge].toDouble();
 }

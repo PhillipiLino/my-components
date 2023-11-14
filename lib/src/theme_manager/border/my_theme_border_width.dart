@@ -14,7 +14,7 @@ class MyThemeBorderWidth {
   });
 
   MyThemeBorderWidth.fromJSON(Map<String, dynamic> json)
-      : zero = json[_zero],
-        small = json[_small],
-        medium = json[_medium];
+      : zero = json[_zero].toDouble(),
+        small = json[_small].toDouble(),
+        medium = json[_medium].toDouble();
 }

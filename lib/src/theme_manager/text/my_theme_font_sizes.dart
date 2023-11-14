@@ -32,13 +32,13 @@ class MyThemeFontSizes {
   });
 
   MyThemeFontSizes.fromJSON(Map<String, dynamic> json)
-      : xxsmall = double.parse(json[_xxsmall]),
-        xsmall = double.parse(json[_xsmall]),
-        small = double.parse(json[_small]),
-        medium = double.parse(json[_medium]),
-        large = double.parse(json[_large]),
-        xlarge = double.parse(json[_xlarge]),
-        xxlarge = double.parse(json[_xxlarge]),
-        xxxlarge = double.parse(json[_xxxlarge]),
-        huge = double.parse(json[_huge]);
+      : xxsmall = json[_xxsmall].toDouble(),
+        xsmall = json[_xsmall].toDouble(),
+        small = json[_small].toDouble(),
+        medium = json[_medium].toDouble(),
+        large = json[_large].toDouble(),
+        xlarge = json[_xlarge].toDouble(),
+        xxlarge = json[_xxlarge].toDouble(),
+        xxxlarge = json[_xxxlarge].toDouble(),
+        huge = json[_huge].toDouble();
 }

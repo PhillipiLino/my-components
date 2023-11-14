@@ -1,4 +1,4 @@
-library solfacil_ui_components;
+library my_components;
 
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,9 @@ class ThemeManager {
 
   factory ThemeManager() => shared;
 
-  ThemeManager._internal();
+  ThemeManager._internal() {
+    MyTheme.fromJSON(_mainThemeJson);
+  }
 
   initializeTheme([ThemeMode initialThemeMode = ThemeMode.system]) async {
     setThemeMode(initialThemeMode);

@@ -1,4 +1,4 @@
-part of solfacil_ui_components;
+part of my_components;
 
 const _mainThemeJson = {
   'colors': {
