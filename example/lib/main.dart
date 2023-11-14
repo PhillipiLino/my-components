@@ -1,7 +1,8 @@
-import 'package:example/presenter/pages/components_menu_page.dart';
-import 'package:example/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:my_components/my_components.dart';
+
+import 'presenter/pages/components_menu_page.dart';
+import 'theme_controller.dart';
 
 void main() {
   ThemeManager.shared.initializeTheme();

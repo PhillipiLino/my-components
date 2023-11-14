@@ -1,7 +1,7 @@
-import 'package:example/presenter/widgets/components_card.dart';
 import 'package:flutter/material.dart';
 import 'package:my_components/my_components.dart';
 
+import '../widgets/components_card.dart';
 import 'buttons_page.dart';
 
 class ComponentsPage extends StatefulWidget {

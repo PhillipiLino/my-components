@@ -107,18 +107,20 @@ class _TypographyPageState extends State<TypographyPage> {
       ),
     };
 
-    return Builder(builder: (context) {
-      return SafeArea(
-        child: ListView.separated(
-          padding: const EdgeInsets.all(16),
-          itemCount: styles.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 16),
-          itemBuilder: (context, index) => Text(
-            styles.entries.toList()[index].key,
-            style: styles.entries.toList()[index].value,
+    return Builder(
+      builder: (context) {
+        return SafeArea(
+          child: ListView.separated(
+            padding: const EdgeInsets.all(16),
+            itemCount: styles.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 16),
+            itemBuilder: (context, index) => Text(
+              styles.entries.toList()[index].key,
+              style: styles.entries.toList()[index].value,
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

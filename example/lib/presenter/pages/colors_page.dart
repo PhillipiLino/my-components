@@ -1,6 +1,7 @@
-import 'package:example/presenter/widgets/color_card.dart';
 import 'package:flutter/material.dart';
 import 'package:my_components/my_components.dart';
+
+import '../widgets/color_card.dart';
 
 class ColorsPage extends StatefulWidget {
   const ColorsPage({super.key});

@@ -1,6 +1,7 @@
-import 'package:example/presenter/widgets/default_card.dart';
 import 'package:flutter/material.dart';
 import 'package:my_components/my_components.dart';
+
+import 'default_card.dart';
 
 class ComponentsCard extends StatelessWidget {
   final String title;

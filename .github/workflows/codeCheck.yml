@@ -1,0 +1,27 @@
+name: Run Tests and Coveralls
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Analyze code
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+
+      - name: Run analyze and tests
+        run: |
+          cd packages/solfacil_ui_components
+          flutter pub get
+          flutter analyze
+          flutter test --coverage
+          cd ../..
+
+      - name: Run Coveralls
+        uses: coverallsapp/github-action@1.1.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          base-path: packages/solfacil_ui_components
+          path-to-lcov: packages/solfacil_ui_components/coverage/lcov.info
