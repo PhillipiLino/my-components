@@ -248,7 +248,7 @@ class MainButton extends StatelessWidget {
               children: [
                 if (icon != null)
                   Container(
-                    margin: size.iconMargin,
+                    margin: titleToSet != null ? size.iconMargin : null,
                     child: Icon(
                       icon,
                       size: size.iconSize,

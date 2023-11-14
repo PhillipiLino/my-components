@@ -55,7 +55,7 @@ class MyButton extends MainButton {
   static final _theme = ThemeManager.shared.theme;
   MyButton({
     required VoidCallback? onPressed,
-    required String? title,
+    String? title,
     MainButtonSize size = MainButtonSize.normal,
     MyButtonType type = MyButtonType.primary,
     IconData? icon,
