@@ -10,4 +10,13 @@ extension ContextExtensions on BuildContext {
 
     return themeMode == ThemeMode.dark || brightness == Brightness.dark;
   }
+
+  void rebuildAllChildren() {
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+
+    (this as Element).visitChildren(rebuild);
+  }
 }

@@ -2,6 +2,7 @@ library my_components;
 
 import 'package:flutter/material.dart';
 
+import '../../my_components.dart';
 import 'my_theme.dart';
 
 part 'main_theme.dart';
@@ -26,17 +27,23 @@ class ThemeManager {
     await resetTheme();
   }
 
-  setThemeByJson(Map<String, dynamic> json) {
+  setThemeByJson(Map<String, dynamic> json, [BuildContext? context]) {
     _theme = MyTheme.fromJSON(json);
+    context?.rebuildAllChildren();
   }
 
-  setTheme(MyTheme newTheme) {
+  setTheme(MyTheme newTheme, [BuildContext? context]) {
     _theme = newTheme;
+    context?.rebuildAllChildren();
   }
 
-  setThemeMode(ThemeMode newThemeMode) => _themeMode = newThemeMode;
+  setThemeMode(ThemeMode newThemeMode, [BuildContext? context]) {
+    _themeMode = newThemeMode;
+    context?.rebuildAllChildren();
+  }
 
-  resetTheme() {
+  resetTheme([BuildContext? context]) {
     _theme = MyTheme.fromJSON(_mainThemeJson);
+    context?.rebuildAllChildren();
   }
 }

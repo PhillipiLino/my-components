@@ -186,6 +186,7 @@ class MainButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = context.allowDarkMode();
     final justIcon = title == null && icon != null;
 
     final btnPadding = MaterialStateProperty.all(
@@ -197,7 +198,7 @@ class MainButton extends StatelessWidget {
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed)) {
           final color = textPressedColor.getDarkOrColor(
-            context.allowDarkMode(),
+            isDarkMode,
             darkTextPressedColor,
           );
 
@@ -207,7 +208,7 @@ class MainButton extends StatelessWidget {
 
         if (states.contains(MaterialState.hovered)) {
           final color = textHoverColor.getDarkOrColor(
-            context.allowDarkMode(),
+            isDarkMode,
             darkTextHoverColor,
           );
 
@@ -217,7 +218,7 @@ class MainButton extends StatelessWidget {
 
         if (states.contains(MaterialState.disabled)) {
           final color = textDisabledColor.getDarkOrColor(
-            context.allowDarkMode(),
+            isDarkMode,
             darkTextDisabledColor,
           );
 
@@ -226,7 +227,7 @@ class MainButton extends StatelessWidget {
         }
 
         final color = textNormalColor.getDarkOrColor(
-          context.allowDarkMode(),
+          isDarkMode,
           darkTextNormalColor,
         );
 
@@ -257,15 +258,14 @@ class MainButton extends StatelessWidget {
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed)) {
           return rippleColor
-              .getDarkOrColor(context.allowDarkMode(), darkRippleColor)
+              .getDarkOrColor(isDarkMode, darkRippleColor)
               .withOpacity(0.4);
         }
 
         if (states.contains(MaterialState.hovered)) {
-          return hoverRippleColor.getDarkOrColor(
-            context.allowDarkMode(),
-            darkHoverRippleColor,
-          );
+          return hoverRippleColor
+              .getDarkOrColor(isDarkMode, darkHoverRippleColor)
+              .withOpacity(0.4);
         }
 
         return Colors.transparent;
@@ -275,30 +275,18 @@ class MainButton extends StatelessWidget {
     final fillColorToSet = MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed)) {
-          return pressedColor.getDarkOrColor(
-            context.allowDarkMode(),
-            darkPressedColor,
-          );
+          return pressedColor.getDarkOrColor(isDarkMode, darkPressedColor);
         }
 
         if (states.contains(MaterialState.hovered)) {
-          return hoverColor.getDarkOrColor(
-            context.allowDarkMode(),
-            darkHoverColor,
-          );
+          return hoverColor.getDarkOrColor(isDarkMode, darkHoverColor);
         }
 
         if (states.contains(MaterialState.disabled)) {
-          return disabledColor.getDarkOrColor(
-            context.allowDarkMode(),
-            darkDisabledColor,
-          );
+          return disabledColor.getDarkOrColor(isDarkMode, darkDisabledColor);
         }
 
-        return normalColor.getDarkOrColor(
-          context.allowDarkMode(),
-          darkNormalColor,
-        );
+        return normalColor.getDarkOrColor(isDarkMode, darkNormalColor);
       },
     );
 
@@ -306,7 +294,7 @@ class MainButton extends StatelessWidget {
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed)) {
           final color = borderPressedColor.getDarkOrColor(
-            context.allowDarkMode(),
+            isDarkMode,
             darkBorderPressedColor,
           );
           return BorderSide(color: color, width: borderPressedWidth);
@@ -314,7 +302,7 @@ class MainButton extends StatelessWidget {
 
         if (states.contains(MaterialState.hovered)) {
           final color = borderHoverColor.getDarkOrColor(
-            context.allowDarkMode(),
+            isDarkMode,
             darkBorderHoverColor,
           );
 
@@ -323,17 +311,14 @@ class MainButton extends StatelessWidget {
 
         if (states.contains(MaterialState.disabled)) {
           final color = borderDisabledColor.getDarkOrColor(
-            context.allowDarkMode(),
+            isDarkMode,
             darkBorderDisabledColor,
           );
           return BorderSide(color: color, width: borderNormalWidth);
         }
 
-        final color = borderNormalColor.getDarkOrColor(
-          context.allowDarkMode(),
-          darkBorderNormalColor,
-        );
-
+        final color =
+            borderNormalColor.getDarkOrColor(isDarkMode, darkBorderNormalColor);
         return BorderSide(color: color, width: borderNormalWidth);
       },
     );

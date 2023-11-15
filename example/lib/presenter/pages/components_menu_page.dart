@@ -28,23 +28,15 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
     setState(() => pickerSecondaryColor = color);
   }
 
-  void rebuildAllChildren(BuildContext context) {
-    void rebuild(Element el) {
-      el.markNeedsBuild();
-      el.visitChildren(rebuild);
-    }
-
-    (context as Element).visitChildren(rebuild);
-  }
-
   showPicker(bool primaryColor) {
     final colorToChange = primaryColor ? 'primária' : 'secundária';
     showDialog(
-      builder: (context) => AlertDialog(
+      builder: (dialogContext) => AlertDialog(
         title: Text('Escolha a cor $colorToChange'),
         content: SingleChildScrollView(
           child: ColorPicker(
-            pickerColor: pickerSecondaryColor,
+            pickerColor:
+                primaryColor ? pickerPrimaryColor : pickerSecondaryColor,
             onColorChanged: (newColor) {
               primaryColor
                   ? setState(() => pickerPrimaryColor = newColor)
@@ -59,7 +51,7 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
               currentPrimaryColor = pickerPrimaryColor;
               currentSecondaryColor = pickerSecondaryColor;
 
-              Navigator.of(context).pop();
+              Navigator.of(dialogContext).pop();
               Map<String, dynamic> newTheme = {
                 ...ThemeManager.shared.theme.toJSON(),
               };
@@ -76,9 +68,7 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
                 );
               }
 
-              ThemeManager.shared.setThemeByJson(newTheme);
-              ThemeController.shared.setTheme(ThemeController.shared.mode);
-              setState(() {});
+              ThemeManager.shared.setThemeByJson(newTheme, context);
             },
           ),
         ],
@@ -100,7 +90,7 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: ThemeController.shared.notifier,
       builder: (context, mode, widget) {
-        ThemeManager.shared.setThemeMode(mode);
+        ThemeManager.shared.setThemeMode(mode, context);
         List<Widget> widgetOptions = <Widget>[
           const ComponentsPage(),
           const ColorsPage(),
@@ -136,9 +126,9 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
                 onPressed: () {
                   final isLight =
                       ThemeController.shared.mode == ThemeMode.light;
-                  ThemeController.shared
-                      .setTheme(isLight ? ThemeMode.dark : ThemeMode.light);
-                  setState(() {});
+                  ThemeController.shared.setTheme(
+                    isLight ? ThemeMode.dark : ThemeMode.light,
+                  );
                 },
               ),
             ],
