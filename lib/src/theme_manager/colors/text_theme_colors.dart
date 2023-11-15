@@ -7,6 +7,10 @@ class TextThemeColors {
   final Color secondary;
   final Color disabled;
 
+  static const String _primary = 'primary';
+  static const String _secondary = 'secondary';
+  static const String _disabled = 'disabled';
+
   TextThemeColors({
     required this.primary,
     required this.secondary,
@@ -14,7 +18,13 @@ class TextThemeColors {
   });
 
   TextThemeColors.fromJSON(Map<String, dynamic> json)
-      : primary = ColorExtension.fromHex(json['primary']),
-        secondary = ColorExtension.fromHex(json['secondary']),
-        disabled = ColorExtension.fromHex(json['disabled']);
+      : primary = ColorExtension.fromHex(json[_primary]),
+        secondary = ColorExtension.fromHex(json[_secondary]),
+        disabled = ColorExtension.fromHex(json[_disabled]);
+
+  toJSON() => {
+        _primary: primary.toHex(showAlpha: false),
+        _secondary: secondary.toHex(showAlpha: false),
+        _disabled: disabled.toHex(showAlpha: false),
+      };
 }

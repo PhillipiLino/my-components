@@ -34,4 +34,12 @@ class MyThemeFontWeights {
       orElse: () => FontWeight.w500,
     );
   }
+
+  toJSON() => {
+        _light: light.value,
+        _regular: regular.value,
+        _medium: medium.value,
+        _bold: bold.value,
+        _black: black.value,
+      };
 }

@@ -25,4 +25,12 @@ class MyThemeBorderRadius {
         small = json[_small].toDouble(),
         regular = json[_regular].toDouble(),
         circle = json[_circle].toDouble();
+
+  toJSON() => {
+        _sharp: sharp,
+        _xsmall: xsmall,
+        _small: small,
+        _regular: regular,
+        _circle: circle,
+      };
 }

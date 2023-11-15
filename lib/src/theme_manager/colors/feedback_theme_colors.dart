@@ -6,6 +6,11 @@ class FeedbackThemeColors {
   final MyThemeColorIntensity attention;
   final MyThemeColorIntensity neutral;
 
+  static const String _success = 'success';
+  static const String _informative = 'informative';
+  static const String _attention = 'attention';
+  static const String _neutral = 'neutral';
+
   FeedbackThemeColors({
     required this.success,
     required this.informative,
@@ -14,8 +19,15 @@ class FeedbackThemeColors {
   });
 
   FeedbackThemeColors.fromJSON(Map<String, dynamic> json)
-      : success = MyThemeColorIntensity.fromJSON(json['success']),
-        informative = MyThemeColorIntensity.fromJSON(json['informative']),
-        attention = MyThemeColorIntensity.fromJSON(json['attention']),
-        neutral = MyThemeColorIntensity.fromJSON(json['neutral']);
+      : success = MyThemeColorIntensity.fromJSON(json[_success]),
+        informative = MyThemeColorIntensity.fromJSON(json[_informative]),
+        attention = MyThemeColorIntensity.fromJSON(json[_attention]),
+        neutral = MyThemeColorIntensity.fromJSON(json[_neutral]);
+
+  toJSON() => {
+        _success: success.toJSON(),
+        _informative: informative.toJSON(),
+        _attention: attention.toJSON(),
+        _neutral: neutral.toJSON(),
+      };
 }

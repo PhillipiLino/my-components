@@ -17,4 +17,10 @@ class MyThemeBorderWidth {
       : zero = json[_zero].toDouble(),
         small = json[_small].toDouble(),
         medium = json[_medium].toDouble();
+
+  toJSON() => {
+        _zero: zero,
+        _small: small,
+        _medium: medium,
+      };
 }

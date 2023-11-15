@@ -16,7 +16,7 @@ class MyTheme {
   static const String _colors = 'colors';
   static const String _fontWeights = 'fontWeights';
   static const String _fontSizes = 'fontSizes';
-  static const String _borderWidth = 'borderWidth';
+  static const String _borderWidths = 'borderWidth';
   static const String _borderRadius = 'borderRadius';
   static const String _spacings = 'spacings';
 
@@ -33,7 +33,16 @@ class MyTheme {
       : colors = MyThemeColors.fromJSON(json[_colors]),
         fontSizes = MyThemeFontSizes.fromJSON(json[_fontSizes]),
         fontWeights = MyThemeFontWeights.fromJSON(json[_fontWeights]),
-        borderWidths = MyThemeBorderWidth.fromJSON(json[_borderWidth]),
+        borderWidths = MyThemeBorderWidth.fromJSON(json[_borderWidths]),
         borderRadius = MyThemeBorderRadius.fromJSON(json[_borderRadius]),
         spacings = MyThemeSpacings.fromJSON(json[_spacings]);
+
+  toJSON() => {
+        _colors: colors.toJSON(),
+        _fontSizes: fontSizes.toJSON(),
+        _fontWeights: fontWeights.toJSON(),
+        _borderWidths: borderWidths.toJSON(),
+        _borderRadius: borderRadius.toJSON(),
+        _spacings: spacings.toJSON(),
+      };
 }

@@ -53,4 +53,19 @@ class MyThemeSpacings {
         xxxlarge = json[_xxxlarge].toDouble(),
         huge = json[_huge].toDouble(),
         xhuge = json[_xhuge].toDouble();
+
+  toJSON() => {
+        _zero: zero,
+        _xxxsmall: xxxsmall,
+        _xxsmall: xxsmall,
+        _xsmall: xsmall,
+        _small: small,
+        _medium: medium,
+        _large: large,
+        _xlarge: xlarge,
+        _xxlarge: xxlarge,
+        _xxxlarge: xxxlarge,
+        _huge: huge,
+        _xhuge: xhuge,
+      };
 }

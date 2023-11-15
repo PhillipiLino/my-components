@@ -7,6 +7,10 @@ class ElementsThemeColors {
   final Color lineAndBorders;
   final Color backgroundAndDisabled;
 
+  static const String _selectionAndIcons = 'selectionAndIcons';
+  static const String _lineAndBorders = 'lineAndBorders';
+  static const String _backgroundAndDisabled = 'backgroundAndDisabled';
+
   ElementsThemeColors({
     required this.selectionAndIcons,
     required this.lineAndBorders,
@@ -14,8 +18,14 @@ class ElementsThemeColors {
   });
 
   ElementsThemeColors.fromJSON(Map<String, dynamic> json)
-      : selectionAndIcons = ColorExtension.fromHex(json['selectionAndIcons']),
-        lineAndBorders = ColorExtension.fromHex(json['lineAndBorders']),
+      : selectionAndIcons = ColorExtension.fromHex(json[_selectionAndIcons]),
+        lineAndBorders = ColorExtension.fromHex(json[_lineAndBorders]),
         backgroundAndDisabled =
-            ColorExtension.fromHex(json['backgroundAndDisabled']);
+            ColorExtension.fromHex(json[_backgroundAndDisabled]);
+
+  toJSON() => {
+        _selectionAndIcons: selectionAndIcons.toHex(showAlpha: false),
+        _lineAndBorders: lineAndBorders.toHex(showAlpha: false),
+        _backgroundAndDisabled: backgroundAndDisabled.toHex(showAlpha: false),
+      };
 }

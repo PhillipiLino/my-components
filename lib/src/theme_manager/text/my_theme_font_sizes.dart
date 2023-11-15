@@ -41,4 +41,16 @@ class MyThemeFontSizes {
         xxlarge = json[_xxlarge].toDouble(),
         xxxlarge = json[_xxxlarge].toDouble(),
         huge = json[_huge].toDouble();
+
+  toJSON() => {
+        _xxsmall: xxsmall,
+        _xsmall: xsmall,
+        _small: small,
+        _medium: medium,
+        _large: large,
+        _xlarge: xlarge,
+        _xxlarge: xxlarge,
+        _xxxlarge: xxxlarge,
+        _huge: huge,
+      };
 }
