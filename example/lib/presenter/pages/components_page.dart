@@ -3,6 +3,7 @@ import 'package:my_components/my_components.dart';
 
 import '../widgets/components_card.dart';
 import 'buttons_page.dart';
+import 'charts_page.dart';
 
 class ComponentsPage extends StatefulWidget {
   const ComponentsPage({super.key});
@@ -28,6 +29,8 @@ class _ComponentsPageState extends State<ComponentsPage>
             children: [
               SizedBox(height: theme.spacings.xxxsmall),
               const ComponentsCard(title: 'Botões', component: ButtonsPage()),
+              SizedBox(height: theme.spacings.medium),
+              const ComponentsCard(title: 'Gráficos', component: ChartsPage()),
               SizedBox(height: theme.spacings.medium),
             ],
           ),

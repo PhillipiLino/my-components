@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ThemeController {
@@ -13,7 +12,10 @@ class ThemeController {
   final ValueNotifier<ThemeMode> notifier = ValueNotifier(ThemeMode.light);
 
   setTheme(ThemeMode mode) {
+    final sameValue = mode == _mode;
     _mode = mode;
     notifier.value = _mode;
+    // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
+    if (sameValue) notifier.notifyListeners();
   }
 }

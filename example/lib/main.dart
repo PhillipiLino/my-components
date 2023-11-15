@@ -22,13 +22,13 @@ class MyApp extends StatelessWidget {
           title: 'MyComponents Demo',
           darkTheme: ThemeData.dark(),
           themeMode: mode,
+          home: const ComponentsMenuPage(),
           theme: ThemeData(
+            useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(
               seedColor: ThemeManager.shared.theme.colors.primary,
             ),
-            useMaterial3: true,
           ),
-          home: const ComponentsMenuPage(),
         );
       },
     );

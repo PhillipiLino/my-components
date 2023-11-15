@@ -8,7 +8,7 @@ class MyTextStyle {
     return ThemeManager.shared.theme;
   }
 
-  static h1({
+  static TextStyle h1({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -18,7 +18,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static h2({
+  static TextStyle h2({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -28,7 +28,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static h3({
+  static TextStyle h3({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -38,7 +38,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static h4({
+  static TextStyle h4({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -48,7 +48,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static h5({
+  static TextStyle h5({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -58,7 +58,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static normal({
+  static TextStyle normal({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -68,7 +68,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static small({
+  static TextStyle small({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -78,7 +78,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.regular,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static tiny({
+  static TextStyle tiny({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -88,7 +88,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.regular,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static light({
+  static TextStyle light({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -98,7 +98,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.light,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static regular({
+  static TextStyle regular({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -108,7 +108,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.regular,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static medium({
+  static TextStyle medium({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -118,7 +118,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static bold({
+  static TextStyle bold({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -128,7 +128,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.bold,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static black({
+  static TextStyle black({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -138,7 +138,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.black,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static sectiontitle({
+  static TextStyle sectiontitle({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,
@@ -148,7 +148,7 @@ class MyTextStyle {
         fontWeight: _theme.fontWeights.medium,
       ).copyWith(color: color, fontSize: fontSize, decoration: decoration);
 
-  static smallestexception({
+  static TextStyle smallestexception({
     Color? color,
     double? fontSize,
     TextDecoration? decoration,

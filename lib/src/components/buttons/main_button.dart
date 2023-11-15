@@ -90,10 +90,14 @@ extension MainButtonSizeExtension on MainButtonSize {
 
 class MainButton extends StatelessWidget {
   final String? title;
-  final VoidCallback? onPressed;
   final MainButtonSize size;
-  final IconData? icon;
+  final Widget? icon;
   final bool allCaps;
+
+  final VoidCallback? onPressed;
+  final VoidCallback? onTapDown;
+  final VoidCallback? onTapUp;
+  final VoidCallback? onTapCancel;
 
   final double normalElevation;
   final double pressedElevation;
@@ -141,11 +145,14 @@ class MainButton extends StatelessWidget {
   final Color? darkBorderHoverColor;
 
   const MainButton({
-    this.onPressed,
     this.title,
     this.size = MainButtonSize.normal,
     this.icon,
     this.allCaps = false,
+    this.onPressed,
+    this.onTapDown,
+    this.onTapUp,
+    this.onTapCancel,
     this.normalElevation = 0,
     this.pressedElevation = 0,
     this.hoverElevation = 0,
@@ -193,7 +200,6 @@ class MainButton extends StatelessWidget {
       justIcon ? size.justIconPadding : size.padding,
     );
 
-    Color? iconColor;
     final textColorToSet = MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed)) {
@@ -202,7 +208,6 @@ class MainButton extends StatelessWidget {
             darkTextPressedColor,
           );
 
-          iconColor = color;
           return color;
         }
 
@@ -212,7 +217,6 @@ class MainButton extends StatelessWidget {
             darkTextHoverColor,
           );
 
-          iconColor = color;
           return color;
         }
 
@@ -222,7 +226,6 @@ class MainButton extends StatelessWidget {
             darkTextDisabledColor,
           );
 
-          iconColor = color;
           return color;
         }
 
@@ -231,7 +234,6 @@ class MainButton extends StatelessWidget {
           darkTextNormalColor,
         );
 
-        iconColor = color;
         return color;
       },
     );
@@ -327,47 +329,45 @@ class MainButton extends StatelessWidget {
 
     return SizedBox(
       height: size.height,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ButtonStyle(
-          overlayColor: overlayColorToSet,
-          side: borderColorToSet,
-          elevation: elevationToSet,
-          shadowColor: fillColorToSet,
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(size.borderRadius),
+      child: GestureDetector(
+        onTapUp: (_) => onTapUp?.call(),
+        onTapDown: (_) => onTapDown?.call(),
+        onTapCancel: () => onTapCancel?.call(),
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ButtonStyle(
+            overlayColor: overlayColorToSet,
+            side: borderColorToSet,
+            elevation: elevationToSet,
+            shadowColor: fillColorToSet,
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(size.borderRadius),
+              ),
             ),
+            padding: btnPadding,
+            minimumSize: MaterialStateProperty.all(Size.zero),
+            foregroundColor: textColorToSet,
+            backgroundColor: fillColorToSet,
           ),
-          padding: btnPadding,
-          minimumSize: MaterialStateProperty.all(Size.zero),
-          foregroundColor: textColorToSet,
-          backgroundColor: fillColorToSet,
-        ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (icon != null)
-                  Container(
-                    margin: titleToSet != null ? size.iconMargin : null,
-                    child: Icon(
-                      icon,
-                      size: size.iconSize,
-                      color: iconColor,
-                    ),
-                  ),
-                if (titleToSet != null)
-                  Text(
-                    titleToSet,
-                    style: TextStyle(fontSize: size.fontSize),
-                  ),
-              ],
-            ),
-          ],
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (icon != null)
+                Container(
+                  height: size.iconSize,
+                  width: size.iconSize,
+                  margin: titleToSet != null ? size.iconMargin : null,
+                  child: icon!,
+                ),
+              if (titleToSet != null)
+                Text(
+                  titleToSet,
+                  style: TextStyle(fontSize: size.fontSize),
+                ),
+            ],
+          ),
         ),
       ),
     );

@@ -38,27 +38,27 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.normal,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.normal,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.normal,
                             onPressed: null,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.normal,
                             onPressed: null,
                           ),
@@ -74,27 +74,27 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             onPressed: null,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             onPressed: null,
                           ),
@@ -110,7 +110,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
@@ -118,14 +118,14 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                             inverted: true,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             inverted: true,
@@ -133,7 +133,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             inverted: true,
                             onPressed: null,
@@ -164,7 +164,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.normal,
@@ -172,14 +172,14 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.normal,
                             type: MyButtonType.secondary,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.normal,
                             onPressed: null,
@@ -187,7 +187,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.normal,
                             onPressed: null,
                             type: MyButtonType.secondary,
@@ -204,7 +204,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
@@ -212,14 +212,14 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                             type: MyButtonType.secondary,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             type: MyButtonType.secondary,
@@ -227,7 +227,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             type: MyButtonType.secondary,
                             onPressed: null,
@@ -244,7 +244,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
@@ -253,7 +253,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                             type: MyButtonType.secondary,
@@ -261,7 +261,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             type: MyButtonType.secondary,
@@ -270,7 +270,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             type: MyButtonType.secondary,
                             inverted: true,
@@ -302,27 +302,27 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.normal,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.normal,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.normal,
                             onPressed: null,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.normal,
                             onPressed: null,
                           ),
@@ -338,27 +338,27 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             onPressed: null,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             onPressed: null,
                           ),
@@ -374,7 +374,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
@@ -382,14 +382,14 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                             inverted: true,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             inverted: true,
@@ -397,7 +397,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             inverted: true,
                             onPressed: null,
@@ -428,7 +428,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.normal,
@@ -436,14 +436,14 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.normal,
                             type: MyOutlineButtonType.secondary,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.normal,
                             onPressed: null,
@@ -451,7 +451,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.normal,
                             onPressed: null,
                             type: MyOutlineButtonType.secondary,
@@ -468,7 +468,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
@@ -476,14 +476,14 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                             type: MyOutlineButtonType.secondary,
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             type: MyOutlineButtonType.secondary,
@@ -491,7 +491,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             type: MyOutlineButtonType.secondary,
                             onPressed: null,
@@ -508,7 +508,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                       child: Row(
                         children: [
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             onPressed: () {},
                             size: MainButtonSize.small,
@@ -517,7 +517,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             onPressed: () {},
                             size: MainButtonSize.small,
                             type: MyOutlineButtonType.secondary,
@@ -525,7 +525,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             title: 'Label',
                             size: MainButtonSize.small,
                             type: MyOutlineButtonType.secondary,
@@ -534,7 +534,7 @@ class _ButtonsPageState extends State<ButtonsPage> {
                           ),
                           SizedBox(width: theme.spacings.xsmall),
                           MyOutlineButton(
-                            icon: Icons.add,
+                            icon: const HeroIcon(HeroIcons.plus),
                             size: MainButtonSize.small,
                             type: MyOutlineButtonType.secondary,
                             inverted: true,

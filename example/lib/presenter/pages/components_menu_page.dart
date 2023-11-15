@@ -69,6 +69,8 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
               }
 
               ThemeManager.shared.setThemeByJson(newTheme, context);
+              ThemeController.shared.setTheme(ThemeController.shared.mode);
+              setState(() {});
             },
           ),
         ],

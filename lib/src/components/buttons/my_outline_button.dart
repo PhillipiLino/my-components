@@ -57,7 +57,7 @@ class MyOutlineButton extends MainButton {
     String? title,
     MainButtonSize size = MainButtonSize.normal,
     MyOutlineButtonType type = MyOutlineButtonType.primary,
-    IconData? icon,
+    Widget? icon,
     bool allCaps = false,
     bool inverted = false,
     Key? key,
