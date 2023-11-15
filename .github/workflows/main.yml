@@ -24,10 +24,9 @@ jobs:
           flutter pub get
           flutter build web --release --base-href="/my-components/"
 
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Publish generated content to GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
         with:
-          target_branch: gh-pages
-          build_dir: example/build/web
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          dir: example/build/web
+          branch: gh-pages
+          token: ${{ secrets.ACCESS_TOKEN }}
