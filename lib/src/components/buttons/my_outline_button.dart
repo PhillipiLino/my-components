@@ -11,7 +11,7 @@ import 'main_button.dart';
 /// Widget build(BuildContext context) {
 ///   return Column(
 ///     children: [
-///       MyButton(
+///       MyOutlineButton(
 ///         onPressed: () {}, // Ação realizada ao pressionar o botão
 ///         title: 'Label', // Título do botão se houver
 ///         size: MainButtonSize.normal, // Tamanho do botão, pode ser [MainButtonSize.normal], [MainButtonSize.small]
@@ -27,37 +27,36 @@ import 'main_button.dart';
 /// {@end-tool}
 ///
 
-enum MyButtonType { primary, secondary }
+enum MyOutlineButtonType { primary, secondary }
 
-extension MyButtonTypeExtension on MyButtonType {
+extension MyOutlineButtonTypeExtension on MyOutlineButtonType {
   Color get fillColor {
-    final colors = ThemeManager.shared.theme.colors;
     switch (this) {
-      case MyButtonType.primary:
-        return colors.primary;
-      case MyButtonType.secondary:
-        return colors.secondary;
+      case MyOutlineButtonType.primary:
+        return Colors.transparent;
+      case MyOutlineButtonType.secondary:
+        return Colors.transparent;
     }
   }
 
   Color get textColor {
     final colors = ThemeManager.shared.theme.colors;
     switch (this) {
-      case MyButtonType.primary:
-        return colors.white;
-      case MyButtonType.secondary:
-        return colors.white;
+      case MyOutlineButtonType.primary:
+        return colors.primary;
+      case MyOutlineButtonType.secondary:
+        return colors.secondary;
     }
   }
 }
 
-class MyButton extends MainButton {
+class MyOutlineButton extends MainButton {
   static final _theme = ThemeManager.shared.theme;
-  MyButton({
+  MyOutlineButton({
     required VoidCallback? onPressed,
     String? title,
     MainButtonSize size = MainButtonSize.normal,
-    MyButtonType type = MyButtonType.primary,
+    MyOutlineButtonType type = MyOutlineButtonType.primary,
     IconData? icon,
     bool allCaps = false,
     bool inverted = false,
@@ -68,36 +67,37 @@ class MyButton extends MainButton {
           size: size,
           icon: icon,
           allCaps: allCaps,
-          borderNormalWidth: 0,
-          rippleColor: _getFillColor(inverted, type).withOpacity(0.75),
-          darkRippleColor: _getFillColor(inverted, type).withOpacity(0.75),
-          normalColor: _getFillColor(inverted, type),
-          disabledColor: _theme.colors.elementsColors.backgroundAndDisabled,
-          pressedColor: _getFillColor(inverted, type).withOpacity(0.75),
-          hoverColor: _getFillColor(inverted, type),
-          darkNormalColor: _getFillColor(inverted, type),
-          darkDisabledColor: _theme.colors.elementsColors.backgroundAndDisabled,
-          darkPressedColor: _getFillColor(inverted, type).withOpacity(0.75),
-          darkHoverColor: _getFillColor(inverted, type),
+          borderNormalWidth: _theme.borderWidths.small,
+          rippleColor: _theme.colors.white,
+          darkRippleColor: _theme.colors.white,
+          hoverRippleColor: inverted ? _theme.colors.white : Colors.transparent,
+          darkHoverRippleColor: Colors.transparent,
+          normalColor: type.fillColor,
+          disabledColor: type.fillColor,
+          pressedColor: type.fillColor,
+          hoverColor: inverted ? _theme.colors.white : type.textColor,
+          darkNormalColor: type.fillColor,
+          darkDisabledColor: type.fillColor,
+          darkPressedColor: type.fillColor,
+          darkHoverColor: inverted ? _theme.colors.white : type.textColor,
           textPressedColor: _getTextColor(inverted, type).withOpacity(0.75),
           textDisabledColor: _theme.colors.textColors.disabled,
           textNormalColor: _getTextColor(inverted, type),
-          textHoverColor: _getTextColor(inverted, type),
+          textHoverColor: inverted ? type.textColor : _theme.colors.white,
           darkTextPressedColor: _getTextColor(inverted, type).withOpacity(0.75),
           darkTextDisabledColor: _theme.colors.textColors.disabled,
           darkTextNormalColor: _getTextColor(inverted, type),
-          darkTextHoverColor: _getTextColor(inverted, type),
-          borderPressedColor: Colors.transparent,
-          borderDisabledColor: Colors.transparent,
-          borderNormalColor: Colors.transparent,
+          darkTextHoverColor: inverted ? type.textColor : _theme.colors.white,
+          borderPressedColor: _getTextColor(inverted, type),
+          borderDisabledColor: _theme.colors.secondary,
+          borderNormalColor: _getTextColor(inverted, type),
+          borderHoverColor: inverted ? _theme.colors.white : type.textColor,
+          darkBorderDisabledColor:
+              _theme.colors.elementsColors.backgroundAndDisabled,
           key: key,
         );
 
-  static Color _getFillColor(bool inverted, MyButtonType type) {
-    return inverted ? type.textColor : type.fillColor;
-  }
-
-  static Color _getTextColor(bool inverted, MyButtonType type) {
-    return inverted ? type.fillColor : type.textColor;
+  static Color _getTextColor(bool inverted, MyOutlineButtonType type) {
+    return inverted ? _theme.colors.white : type.textColor;
   }
 }
