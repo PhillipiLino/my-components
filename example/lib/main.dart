@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: ThemeController.shared.notifier,
       builder: (context, mode, widget) {
-        ThemeManager.shared.initializeTheme(mode);
+        ThemeManager.shared.setThemeMode(mode);
         return MaterialApp(
           title: 'MyComponents Demo',
           darkTheme: ThemeData.dark(),

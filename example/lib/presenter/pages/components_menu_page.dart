@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:my_components/my_components.dart';
 
 import '../../theme_controller.dart';
@@ -16,6 +17,75 @@ class ComponentsMenuPage extends StatefulWidget {
 
 class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
   int _selectedIndex = 0;
+  // create some values
+  Color pickerPrimaryColor = ThemeManager.shared.theme.colors.primary;
+  Color currentPrimaryColor = ThemeManager.shared.theme.colors.primary;
+
+  Color pickerSecondaryColor = const Color(0xff443a49);
+  Color currentSecondaryColor = const Color(0xff443a49);
+
+  void changeColor(Color color) {
+    setState(() => pickerSecondaryColor = color);
+  }
+
+  void rebuildAllChildren(BuildContext context) {
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+
+    (context as Element).visitChildren(rebuild);
+  }
+
+  showPicker(bool primaryColor) {
+    final colorToChange = primaryColor ? 'primária' : 'secundária';
+    showDialog(
+      builder: (context) => AlertDialog(
+        title: Text('Escolha a cor $colorToChange'),
+        content: SingleChildScrollView(
+          child: ColorPicker(
+            pickerColor: pickerSecondaryColor,
+            onColorChanged: (newColor) {
+              primaryColor
+                  ? setState(() => pickerPrimaryColor = newColor)
+                  : setState(() => pickerSecondaryColor = newColor);
+            },
+          ),
+        ),
+        actions: <Widget>[
+          ElevatedButton(
+            child: const Text('OK'),
+            onPressed: () {
+              currentPrimaryColor = pickerPrimaryColor;
+              currentSecondaryColor = pickerSecondaryColor;
+
+              Navigator.of(context).pop();
+              Map<String, dynamic> newTheme = {
+                ...ThemeManager.shared.theme.toJSON(),
+              };
+
+              if (primaryColor) {
+                newTheme['colors']['primary'] = pickerPrimaryColor.toHex(
+                  showAlpha: false,
+                );
+              }
+
+              if (!primaryColor) {
+                newTheme['colors']['secondary'] = pickerSecondaryColor.toHex(
+                  showAlpha: false,
+                );
+              }
+
+              ThemeManager.shared.setThemeByJson(newTheme);
+              ThemeController.shared.setTheme(ThemeController.shared.mode);
+              setState(() {});
+            },
+          ),
+        ],
+      ),
+      context: context,
+    );
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -30,7 +100,7 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: ThemeController.shared.notifier,
       builder: (context, mode, widget) {
-        ThemeManager.shared.initializeTheme(mode);
+        ThemeManager.shared.setThemeMode(mode);
         List<Widget> widgetOptions = <Widget>[
           const ComponentsPage(),
           const ColorsPage(),
@@ -43,6 +113,20 @@ class _ComponentsMenuPageState extends State<ComponentsMenuPage> {
             title: const Text('Componentes'),
             elevation: 0,
             actions: [
+              IconButton(
+                onPressed: () => showPicker(true),
+                icon: Text(
+                  '1',
+                  style: MyTextStyle.black(color: currentPrimaryColor),
+                ),
+              ),
+              IconButton(
+                onPressed: () => showPicker(false),
+                icon: Text(
+                  '2',
+                  style: MyTextStyle.black(color: currentSecondaryColor),
+                ),
+              ),
               IconButton(
                 icon: Icon(
                   ThemeController.shared.mode == ThemeMode.light
