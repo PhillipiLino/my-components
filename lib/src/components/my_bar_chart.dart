@@ -37,7 +37,7 @@ class _MyBarChartState extends State<MyBarChart> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final height = constraints.maxHeight;
-        const textHeight = 20.0;
+        const textHeight = 25.0;
         late final size = height - (textHeight * 2);
         final goalLine = size - (size * (widget.goal ?? 0)) + textHeight;
 
@@ -66,25 +66,31 @@ class _MyBarChartState extends State<MyBarChart> {
                   final textOpacity = isSelected ? 1.0 : 0.4;
                   final textStyle = MyTextStyle.regular();
 
-                  return GestureDetector(
-                    onTapCancel: () => setState(() => selectedIndex = -1),
-                    onTapUp: (_) => setState(() => selectedIndex = -1),
-                    onTapDown: (_) {
-                      setState(() => selectedIndex = index);
-                    },
-                    child: SizedBox(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Opacity(
-                            opacity: textOpacity,
-                            child: widget.yLabelBuilder?.call(index) ??
-                                Text(
-                                  '${list[index].yValue}%',
-                                  style: textStyle,
-                                ),
-                          ),
-                          AnimatedContainer(
+                  return SizedBox(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Opacity(
+                          opacity: textOpacity,
+                          child: widget.yLabelBuilder?.call(index) ??
+                              Text(
+                                '${list[index].yValue}%',
+                                style: textStyle,
+                              ),
+                        ),
+                        InkWell(
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          splashColor: Colors.transparent,
+                          onTapCancel: () => setState(() => selectedIndex = -1),
+                          onTapUp: (_) => setState(() => selectedIndex = -1),
+                          onTapDown: (_) {
+                            setState(() => selectedIndex = index);
+                          },
+                          onHover: (hover) {
+                            setState(() => selectedIndex = hover ? index : -1);
+                          },
+                          child: AnimatedContainer(
                             width: 30,
                             duration: const Duration(milliseconds: 100),
                             padding: EdgeInsets.only(top: marginTop),
@@ -105,12 +111,12 @@ class _MyBarChartState extends State<MyBarChart> {
                               color: isSelected ? mainColor : secondaryColor,
                             ),
                           ),
-                          Opacity(
-                            opacity: textOpacity,
-                            child: Text(list[index].xValue, style: textStyle),
-                          ),
-                        ],
-                      ),
+                        ),
+                        Opacity(
+                          opacity: textOpacity,
+                          child: Text(list[index].xValue, style: textStyle),
+                        ),
+                      ],
                     ),
                   );
                 },

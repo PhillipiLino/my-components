@@ -6,5 +6,6 @@ export 'src/components/buttons/my_outline_button.dart';
 export 'src/components/my_bar_chart.dart';
 export 'src/extensions/color_extensions.dart';
 export 'src/extensions/context_extensions.dart';
+export 'src/extensions/text_style_extensions.dart';
 export 'src/my_text_styles.dart';
 export 'src/theme_manager/theme_manager.dart';
