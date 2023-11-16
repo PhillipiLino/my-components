@@ -75,6 +75,7 @@ const _mainThemeJson = {
     'xsmall': 4,
     'small': 8,
     'regular': 16,
+    'large': 24,
     'circle': 9999,
   },
   'borderWidth': {
