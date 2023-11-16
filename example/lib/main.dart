@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:my_components/my_components.dart';
 
@@ -23,6 +24,13 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           themeMode: mode,
           home: const ComponentsMenuPage(),
+          scrollBehavior: const MaterialScrollBehavior().copyWith(
+            dragDevices: {
+              PointerDeviceKind.mouse,
+              PointerDeviceKind.touch,
+              PointerDeviceKind.trackpad,
+            },
+          ),
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(
