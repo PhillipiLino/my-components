@@ -70,6 +70,9 @@ const _mainThemeJson = {
     'xxxlarge': 40,
     'huge': 48,
   },
+  'fontFamilies': {
+    'base': 'Nunito',
+  },
   'borderRadius': {
     'sharp': 0,
     'xsmall': 4,

@@ -33,6 +33,8 @@ class MyApp extends StatelessWidget {
           ),
           theme: ThemeData(
             useMaterial3: true,
+            fontFamily: ThemeManager.shared.theme.fontFamilies.base,
+            package: ThemeManager.shared.theme.package,
             colorScheme: ColorScheme.fromSeed(
               seedColor: ThemeManager.shared.theme.colors.primary,
             ),

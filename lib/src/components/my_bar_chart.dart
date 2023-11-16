@@ -68,6 +68,20 @@ class _MyBarChartState extends State<MyBarChart> {
           height: size,
           child: Stack(
             children: [
+              if (widget.goal != null)
+                Positioned(
+                  top: goalLine,
+                  right: 0,
+                  left: 0,
+                  child: Container(
+                    height: borderWidths.small,
+                    decoration: BoxDecoration(
+                      color: colors.primary.withOpacity(
+                        0.5,
+                      ),
+                    ),
+                  ),
+                ),
               ListView.separated(
                 itemCount: list.length,
                 scrollDirection: Axis.horizontal,
@@ -142,20 +156,6 @@ class _MyBarChartState extends State<MyBarChart> {
                   );
                 },
               ),
-              if (widget.goal != null)
-                Positioned(
-                  top: goalLine,
-                  right: 0,
-                  left: 0,
-                  child: Container(
-                    height: borderWidths.small,
-                    decoration: BoxDecoration(
-                      color: colors.primary.withOpacity(
-                        0.5,
-                      ),
-                    ),
-                  ),
-                ),
             ],
           ),
         );
