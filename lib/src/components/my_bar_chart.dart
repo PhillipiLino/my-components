@@ -51,7 +51,7 @@ class _MyBarChartState extends State<MyBarChart> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final height = constraints.maxHeight;
-        const textHeight = 20.0;
+        const textHeight = 25.0;
         late final size = height - (textHeight * 2);
         final goalLine = size - (size * (widget.goal ?? 0)) + textHeight;
 
