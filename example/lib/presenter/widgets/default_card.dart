@@ -23,7 +23,7 @@ class DefaultCard extends StatelessWidget {
           ),
         ),
         side: BorderSide(
-          color: colors.secondary,
+          color: colors.elementsColors.lineAndBorders,
           width: theme.borderWidths.small,
         ),
       ),
